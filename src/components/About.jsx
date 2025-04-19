@@ -49,7 +49,7 @@ const About = ({ goBack, navigateTo }) => {
               <div className="about-text-content">
                 <h1 className="hero-title">About Me</h1>
                 <p className="hero-description">
-                  A passionate full-stack developer dedicated to crafting innovative and user-friendly web applications.
+                  A passionate Full-stack developer dedicated to crafting innovative and user-friendly web applications.
                   I thrive on challenges and am always eager to learn new technologies and techniques to enhance my skills.
                 </p>
                 
