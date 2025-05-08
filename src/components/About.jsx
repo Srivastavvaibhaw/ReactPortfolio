@@ -10,7 +10,7 @@ import {
 } from 'react-icons/fa';
 import '../styles/About.css';
 
-const profileImage = "/public/images/aboutprofile.png";
+const profileImage = "/images/aboutprofile.png";
 
 const About = ({ goBack, navigateTo }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -113,7 +113,7 @@ const About = ({ goBack, navigateTo }) => {
             <div className="qualification-card">
               <div className="card-header">
                 <div className="icon-container">
-                  <img src="/public/aws.svg" alt="AWS" className="qualification-icon" />
+                  <img src="/aws.svg" alt="AWS" className="qualification-icon" />
                 </div>
                 <div className="qualification-details">
                   <h3 className="qualification-title">AWS Certified Developer</h3>
@@ -139,7 +139,7 @@ const About = ({ goBack, navigateTo }) => {
             <div className="qualification-card">
               <div className="card-header">
                 <div className="icon-container">
-                  <img src="/public/react.svg" alt="React" className="qualification-icon" />
+                  <img src="/react.svg" alt="React" className="qualification-icon" />
                 </div>
                 <div className="qualification-details">
                   <h3 className="qualification-title">React Advanced Patterns</h3>

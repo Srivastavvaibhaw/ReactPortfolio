@@ -111,7 +111,7 @@ const Projects = ({ goBack, navigateTo }) => {
       title: "Private Chat Application",
       description: "A secure real-time chat platform with end-to-end encryption, user authentication, and file sharing capabilities.",
       icon: <FaLock />,
-      image: "/public/images/chatapp.png",
+      image: "/images/chatapp.png",
       techStack: [
         { name: "React", icon: <SiReact />, color: "#61DAFB" },
         { name: "Node.js", icon: <SiNodedotjs />, color: "#339933" },
@@ -167,7 +167,7 @@ const Projects = ({ goBack, navigateTo }) => {
       title: "College Counselling Website",
       description: "A comprehensive platform to help students with college applications, guidance, and scholarship information.",
       icon: <FaCode />,
-      image: "/public/images/college.png",
+      image: "/images/college.png",
       techStack: [
         { name: "React", icon: <SiReact />, color: "#61DAFB" },
         { name: "Node.js", icon: <SiNodedotjs />, color: "#339933" },
@@ -193,7 +193,7 @@ const Projects = ({ goBack, navigateTo }) => {
       title: "Automatic Railway Barricade System",
       description: "An IoT-based automated system that detects approaching trains and controls railway barricades for enhanced safety.",
       icon: <FaTrain />,
-      image: "/public/images/railwaysystem.jpg",
+      image: "/images/railwaysystem.jpg",
       techStack: [
         { name: "C++", icon: <SiCplusplus />, color: "#00599C" },
         { name: "Arduino", icon: <SiArduino />, color: "#00979D" }
@@ -218,7 +218,7 @@ const Projects = ({ goBack, navigateTo }) => {
       title: "Portfolio",
       description: "A personal portfolio website showcasing projects, skills, and professional experience.",
       icon: <FaCode />,
-      image: "/public/images/portfolio.png",
+      image: "/images/portfolio.png",
       techStack: [
         { name: "React", icon: <SiReact />, color: "#61DAFB" },
         { name: "CSS", icon: <SiCss3 />, color: "#1572B6" },
@@ -244,7 +244,7 @@ const Projects = ({ goBack, navigateTo }) => {
       title: "Password Secure App",
       description: "A comprehensive password management and security application that helps users create, store, and manage strong passwords.",
       icon: <FaShieldAlt />,
-      image: "/public/images/passsecure.png",
+      image: "/images/passsecure.png",
       techStack: [
         { name: "HTML5", icon: <SiHtml5 />, color: "#E34F26" },
         { name: "CSS3", icon: <SiCss3 />, color: "#1572B6" },
@@ -272,7 +272,7 @@ const Projects = ({ goBack, navigateTo }) => {
       title: "JARVIS Voice Assistant",
       description: "An AI-powered voice assistant that recognizes speech commands and performs various tasks through voice interaction.",
       icon: <FaMicrophone />,
-      image: "/public/images/jarvis.png",
+      image: "/images/jarvis.png",
       techStack: [
         { name: "HTML5", icon: <SiHtml5 />, color: "#E34F26" },
         { name: "CSS3", icon: <SiCss3 />, color: "#1572B6" },
@@ -301,7 +301,7 @@ const Projects = ({ goBack, navigateTo }) => {
       title: "Wallet Secure",
       description: "A digital wallet security application that provides encryption and secure storage for financial information and digital assets.",
       icon: <FaWallet />,
-      image: "/public/images/wallet.png",
+      image: "/images/wallet.png",
       techStack: [
         { name: "HTML5", icon: <SiHtml5 />, color: "#E34F26" },
         { name: "CSS3", icon: <SiCss3 />, color: "#1572B6" },
@@ -329,7 +329,7 @@ const Projects = ({ goBack, navigateTo }) => {
       title: "Restaurant Website",
       description: "A modern, responsive website for a restaurant with online ordering, reservation system, and menu management.",
       icon: <FaUtensils />,
-      image: "/public/images/restaurant.png",
+      image: "/images/restaurant.png",
       techStack: [
         { name: "React", icon: <SiReact />, color: "#61DAFB" },
         { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
@@ -355,7 +355,7 @@ const Projects = ({ goBack, navigateTo }) => {
       title: "Amazon Clone",
       description: "A full-featured e-commerce platform mimicking Amazon's core functionalities with user authentication and payment processing.",
       icon: <FaShoppingCart />,
-      image: "/public/images/amazon.png",
+      image: "/images/amazon.png",
       techStack: [
         { name: "React", icon: <SiReact />, color: "#61DAFB" },
         { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
@@ -381,7 +381,7 @@ const Projects = ({ goBack, navigateTo }) => {
       title: "Netflix Clone",
       description: "A streaming platform clone with Netflix's UI, featuring movie browsing, trailers, and user profiles.",
       icon: <FaFilm />,
-      image: "/public/images/netflix.png",
+      image: "/images/netflix.png",
       techStack: [
         { name: "React", icon: <SiReact />, color: "#61DAFB" },
         { name: "Redux", icon: <SiRedux />, color: "#764ABC" },
@@ -407,7 +407,7 @@ const Projects = ({ goBack, navigateTo }) => {
       title: "Sorting Visualizer",
       description: "An interactive tool that visualizes various sorting algorithms, helping users understand how they work step-by-step.",
       icon: <FaChartBar />,
-      image: "/public/images/sortingv.png",
+      image: "/images/sortingv.png",
       techStack: [
         { name: "React", icon: <SiReact />, color: "#61DAFB" },
         { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
