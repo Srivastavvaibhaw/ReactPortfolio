@@ -4,15 +4,60 @@ import React, { useEffect, useState, useRef } from 'react';
 import { 
   FaGithub, FaLinkedinIn, FaTwitter, FaInstagram, FaReact, 
   FaNodeJs, FaDatabase, FaArrowRight, FaChevronDown, FaCode, 
-  FaLightbulb, FaRocket
+  FaLightbulb, FaRocket, FaBrain, FaLaptopCode, 
+  FaPaintBrush, FaRobot, FaTimes, FaMobileAlt
 } from 'react-icons/fa';
 import '../styles/HomePage.css';
 
+const ServiceCard = ({ title, bgImage, description, details }) => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  
+  const openPopup = () => {
+    setIsPopupOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+  
+  const closePopup = () => {
+    setIsPopupOpen(false);
+    document.body.style.overflow = 'auto';
+  };
+  
+  return (
+    <>
+      <div className="service-card" style={{ backgroundImage: `url(${bgImage})` }}>
+        <div className="service-overlay"></div>
+        <div className="service-content">
+          <h3 className="service-title">{title}</h3>
+          <button className="read-more-btn" onClick={openPopup}>
+            Read More <FaArrowRight />
+          </button>
+        </div>
+      </div>
+      
+      {isPopupOpen && (
+        <div className="popup-container" onClick={closePopup}>
+          <div className="service-popup" onClick={(e) => e.stopPropagation()}>
+            <button className="close-popup" onClick={closePopup} aria-label="Close">
+              <FaTimes className="close-icon" />
+            </button>
+            <h3 className="popup-title">{title}</h3>
+            <div className="popup-content">
+              {details}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+
 const HomePage = ({ navigateTo }) => {
-  const [typedText, setTypedText] = useState('');
+  const [typedRole, setTypedRole] = useState('');
   const fullName = "Vaibhaw Srivastav";
-  const typingSpeed = 150;
-  const pauseBetween = 1000;
+  const role = "FullStack Developer!!";
+  const typingSpeed = 100; 
+  const pauseBeforeRestart = 1000;
   const typingDelayRef = useRef(null);
   const contentRef = useRef(null);
 
@@ -20,28 +65,34 @@ const HomePage = ({ navigateTo }) => {
     let currentIndex = 0;
     let isDeleting = false;
     
-    const typeCharacter = () => {
-      if (!isDeleting && currentIndex < fullName.length) {
-        setTypedText(fullName.substring(0, currentIndex + 1));
+    const typeRoleCharacter = () => {
+      // When typing
+      if (!isDeleting && currentIndex < role.length) {
+        setTypedRole(role.substring(0, currentIndex + 1));
         currentIndex++;
-        typingDelayRef.current = setTimeout(typeCharacter, typingSpeed);
+        typingDelayRef.current = setTimeout(typeRoleCharacter, typingSpeed);
       } 
-      else if (!isDeleting && currentIndex >= fullName.length) {
+      // When complete typing
+      else if (!isDeleting && currentIndex >= role.length) {
+        // Pause at the end for a moment
+        typingDelayRef.current = setTimeout(typeRoleCharacter, pauseBeforeRestart);
         isDeleting = true;
-        typingDelayRef.current = setTimeout(typeCharacter, pauseBetween);
       }
+      // When deleting
       else if (isDeleting && currentIndex > 0) {
         currentIndex--;
-        setTypedText(fullName.substring(0, currentIndex));
-        typingDelayRef.current = setTimeout(typeCharacter, typingSpeed / 2);
+        setTypedRole(role.substring(0, currentIndex));
+        typingDelayRef.current = setTimeout(typeRoleCharacter, typingSpeed / 2);
       }
+      // When done deleting
       else if (isDeleting && currentIndex === 0) {
         isDeleting = false;
-        typingDelayRef.current = setTimeout(typeCharacter, pauseBetween);
+        // Small pause before starting again
+        typingDelayRef.current = setTimeout(typeRoleCharacter, pauseBeforeRestart);
       }
     };
     
-    typeCharacter();
+    typeRoleCharacter();
     
     return () => {
       if (typingDelayRef.current) {
@@ -82,9 +133,13 @@ const HomePage = ({ navigateTo }) => {
         <div className="hero-content">
           <div className="welcome-badge">Welcome to my Portfolio</div>
           <h1 className="hero-title">
-            Hi! I'm <span className="name-container"><span className="typing-text">{typedText}</span><span className="cursor">|</span></span>
+            Hi! I'm <span className="name-static">{fullName}</span>
           </h1>
-          <h2 className="hero-subtitle">Full Stack Developer</h2>
+          <h2 className="hero-subtitle">
+            <span className="role-container">
+              <span className="typing-text">{typedRole}</span>
+            </span>
+          </h2>
           <p className="hero-description">
             The driving force behind groundbreaking and visually captivating digital experiences.
             With mastery in both frontend and backend development, I turn concepts into dynamic web applications.
@@ -110,7 +165,7 @@ const HomePage = ({ navigateTo }) => {
           <div className="profile-circle">
             <div className="profile-image-container">
               <img 
-                src="/images/tl.png" 
+                src="images/tl.png" 
                 alt="Developer with laptop" 
                 className="profile-img"
                 onError={(e) => {
@@ -181,6 +236,97 @@ const HomePage = ({ navigateTo }) => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+      
+      {/* Services Section */}
+      <section className="services-section">
+        <div className="services-bg-pattern"></div>
+        <div className="section-header">
+          <h2 className="section-title">My Services</h2>
+          <p className="section-subtitle">What I offer</p>
+        </div>
+        
+        <div className="services-grid">
+          <ServiceCard 
+            title="AI & ML" 
+            bgImage="/images/aiml.avif"
+            details={
+              <div>
+                <p>Harness the power of artificial intelligence and machine learning to transform your business and stay ahead of the competition.</p>
+                <h4>What I Offer:</h4>
+                <ul>
+                  <li>Custom AI solution development for business process optimization</li>
+                  <li>Machine learning models for predictive analytics and data-driven insights</li>
+                  <li>Natural Language Processing (NLP) applications for text analysis and chatbots</li>
+                  <li>Computer Vision solutions for image and video analysis</li>
+                  <li>AI integration with existing business systems and workflows</li>
+                  <li>Recommendation engines and personalization algorithms</li>
+                </ul>
+                <p>Using cutting-edge technologies like TensorFlow, PyTorch, and cloud-based AI services, I can help you unlock the full potential of your data and automate complex tasks.</p>
+              </div>
+            }
+          />
+          
+          <ServiceCard 
+            title="Web Development" 
+            bgImage="/images/webdev.jpg"
+            details={
+              <div>
+                <p>Create stunning, responsive websites and web applications that engage users and drive business growth.</p>
+                <h4>What I Offer:</h4>
+                <ul>
+                  <li>Custom website design and development</li>
+                  <li>Progressive Web Applications (PWAs) for enhanced user experience</li>
+                  <li>E-commerce solutions with secure payment integration</li>
+                  <li>Content Management Systems (WordPress, Shopify, Custom CMS)</li>
+                  <li>API development and third-party integrations</li>
+                  <li>Website optimization for speed, SEO, and accessibility</li>
+                </ul>
+                <p>Using modern frameworks like React, Next.js, and Node.js, I build scalable, secure, and high-performance web solutions that look great on any device and help you achieve your business goals.</p>
+              </div>
+            }
+          />
+          
+          <ServiceCard 
+            title="UI/UX Design" 
+            bgImage="/images/uiux.jpg"
+            details={
+              <div>
+                <p>Create intuitive, engaging user interfaces and seamless user experiences that delight your customers and boost conversion rates.</p>
+                <h4>What I Offer:</h4>
+                <ul>
+                  <li>User research and persona development</li>
+                  <li>Wireframing and interactive prototyping</li>
+                  <li>Visual design and branding</li>
+                  <li>User journey mapping and information architecture</li>
+                  <li>Usability testing and optimization</li>
+                  <li>Design systems and component libraries</li>
+                </ul>
+                <p>I combine aesthetics with functionality to create designs that not only look beautiful but are also intuitive and accessible to all users. My user-centered approach ensures that every design decision is made with your users' needs in mind.</p>
+              </div>
+            }
+          />
+          
+          <ServiceCard 
+            title="Software Development" 
+            bgImage="/images/software.jpg"
+            details={
+              <div>
+                <p>Build robust, scalable software solutions that solve complex business problems and drive innovation.</p>
+                <h4>What I Offer:</h4>
+                <ul>
+                  <li>Custom desktop and mobile application development</li>
+                  <li>Cloud-based software solutions</li>
+                  <li>Enterprise software integration</li>
+                  <li>Database design and management</li>
+                  <li>Legacy system modernization</li>
+                  <li>DevOps implementation and CI/CD pipelines</li>
+                </ul>
+                <p>From concept to deployment, I create software solutions that are tailored to your specific business needs. Using agile methodologies and best practices in software development, I ensure that your software is reliable, maintainable, and scalable for future growth.</p>
+              </div>
+            }
+          />
         </div>
       </section>
       
