@@ -2127,3 +2127,421 @@ html {
   font-size: 20px;
   color: white;
 }
+
+/* Updated popup styles with improved mobile padding */
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.service-popup {
+  background: linear-gradient(145deg, #0a1525 0%, #0d1d33 100%);
+  border: 2px solid #0088ff;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 50px 30px 30px; /* Increased top padding to accommodate close button */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  animation: popupFadeIn 0.3s ease;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.service-popup::-webkit-scrollbar {
+  width: 8px;
+}
+
+.service-popup::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.service-popup::-webkit-scrollbar-thumb {
+  background: #0088ff;
+  border-radius: 10px;
+}
+
+.close-popup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 136, 255, 0.2);
+  border: 1px solid rgba(0, 136, 255, 0.5);
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  padding: 0;
+}
+
+.close-popup:hover {
+  background: #0088ff;
+  transform: rotate(90deg);
+}
+
+.close-icon {
+  font-size: 20px;
+  color: white;
+}
+
+.popup-title {
+  color: #0088ff;
+  font-size: 2rem;
+  margin-top: 0; /* Ensure no extra space at top */
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 136, 255, 0.3);
+  padding-bottom: 15px;
+  padding-right: 40px; /* Make room for close button */
+}
+
+.popup-content {
+  color: #e0e0e0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.popup-content p {
+  margin-bottom: 15px;
+}
+
+.popup-content h4 {
+  color: #0088ff;
+  margin: 20px 0 10px;
+  font-size: 1.2rem;
+}
+
+.popup-content ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.popup-content li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 5px;
+}
+
+.popup-content li::before {
+  content: '•';
+  color: #0088ff;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .popup-container {
+    padding: 15px;
+    align-items: flex-start; /* Align to top on mobile */
+    padding-top: 50px; /* Add extra space at top on mobile */
+    overflow-y: auto; /* Allow scrolling on the container level */
+  }
+  
+  .service-popup {
+    padding: 45px 20px 25px; /* Adjusted padding for mobile */
+    width: 95%;
+    max-height: calc(100vh - 100px); /* Adjust max height for mobile */
+    margin: auto; /* Center vertically */
+  }
+  
+  .close-popup {
+    top: 10px;
+    right: 10px;
+  }
+  
+  .popup-title {
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .popup-content {
+    font-size: 0.95rem;
+  }
+  
+  .popup-content h4 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .popup-container {
+    padding: 10px;
+    padding-top: 30px;
+  }
+  
+  .service-popup {
+    padding: 40px 15px 20px;
+    border-radius: 10px;
+  }
+}
+
+/* Universal popup styles for all devices */
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: flex-start; /* Always align to top */
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto; /* Always allow scrolling */
+  padding-top: 100px; /* Generous top padding for all devices */
+}
+
+.service-popup {
+  background: linear-gradient(145deg, #0a1525 0%, #0d1d33 100%);
+  border: 2px solid #0088ff;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  max-height: calc(100vh - 200px); /* Account for top and bottom padding */
+  overflow-y: auto;
+  position: relative;
+  padding: 50px 30px 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  animation: popupFadeIn 0.3s ease;
+  margin-bottom: 100px; /* Add bottom margin for scrolling space */
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.service-popup::-webkit-scrollbar {
+  width: 8px;
+}
+
+.service-popup::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.service-popup::-webkit-scrollbar-thumb {
+  background: #0088ff;
+  border-radius: 10px;
+}
+
+.close-popup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 136, 255, 0.2);
+  border: 1px solid rgba(0, 136, 255, 0.5);
+  color: #ffffff;
+  width: 44px; /* Slightly larger for better touch target */
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  padding: 0;
+}
+
+.close-popup:hover {
+  background: #0088ff;
+  transform: rotate(90deg);
+}
+
+.close-icon {
+  font-size: 22px;
+  color: white;
+}
+
+.popup-title {
+  color: #0088ff;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 136, 255, 0.3);
+  padding-bottom: 15px;
+  padding-right: 40px;
+}
+
+.popup-content {
+  color: #e0e0e0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.popup-content p {
+  margin-bottom: 15px;
+}
+
+.popup-content h4 {
+  color: #0088ff;
+  margin: 20px 0 10px;
+  font-size: 1.2rem;
+}
+
+.popup-content ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.popup-content li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 5px;
+}
+
+.popup-content li::before {
+  content: '•';
+  color: #0088ff;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .popup-container {
+    padding-top: 80px; /* Slightly less top padding needed on large screens */
+  }
+  
+  .service-popup {
+    max-width: 700px; /* Larger popup on big screens */
+    max-height: calc(100vh - 160px);
+  }
+}
+
+/* Medium screens */
+@media (max-width: 992px) {
+  .popup-container {
+    padding-top: 90px;
+  }
+  
+  .service-popup {
+    width: 95%;
+    padding: 45px 25px 25px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .popup-container {
+    padding: 15px;
+    padding-top: 100px; /* Extra padding for mobile navigation bars */
+  }
+  
+  .service-popup {
+    padding: 45px 20px 25px;
+    width: 95%;
+    border-radius: 12px;
+    margin-bottom: 80px;
+  }
+  
+  .close-popup {
+    top: 10px;
+    right: 10px;
+    width: 46px; /* Even larger on mobile for easier tapping */
+    height: 46px;
+  }
+  
+  .popup-title {
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .popup-content {
+    font-size: 0.95rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .popup-container {
+    padding: 10px;
+    padding-top: 110px; /* Maximum top padding for smallest devices */
+  }
+  
+  .service-popup {
+    padding: 40px 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 60px;
+  }
+  
+  .close-popup {
+    width: 48px; /* Largest size for smallest screens */
+    height: 48px;
+  }
+  
+  .close-icon {
+    font-size: 24px;
+  }
+}
+
+/* Handle landscape orientation on mobile */
+@media (max-height: 600px) and (max-width: 900px) {
+  .popup-container {
+    padding-top: 60px; /* Less top padding but still enough for nav bars */
+  }
+  
+  .service-popup {
+    max-height: calc(100vh - 120px);
+    margin-bottom: 60px;
+  }
+}
+
+/* Safari-specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .popup-container {
+    padding-top: 120px; /* Extra padding for Safari mobile */
+  }
+  
+  @media (max-width: 480px) {
+    .popup-container {
+      padding-top: 130px;
+    }
+  }
+}

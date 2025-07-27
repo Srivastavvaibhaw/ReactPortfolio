@@ -165,7 +165,7 @@ const HomePage = ({ navigateTo }) => {
           <div className="profile-circle">
             <div className="profile-image-container">
               <img 
-                src="images/tl.png" 
+                src="/images/pic.jpg" 
                 alt="Developer with laptop" 
                 className="profile-img"
                 onError={(e) => {
